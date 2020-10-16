@@ -3,10 +3,9 @@ package com.vietis.mvvmarchitecture.ui.auth
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.vietis.mvvmarchitecture.R
+import com.vietis.mvvmarchitecture.data.db.entities.User
 import com.vietis.mvvmarchitecture.databinding.ActivityLoginBinding
 import com.vietis.mvvmarchitecture.util.hide
 import com.vietis.mvvmarchitecture.util.show
@@ -29,11 +28,9 @@ class LoginActivity : AppCompatActivity(), AuthListener {
         progress_bar.show()
     }
 
-    override fun onSuccess(loginResponse: LiveData<String>) {
-        loginResponse.observe(this, Observer {
-            progress_bar.hide()
-            toast(it)
-        })
+    override fun onSuccess(user: User) {
+        progress_bar.hide()
+        toast("${user.name} is logged in")
     }
 
     override fun onFailure(message: String) {

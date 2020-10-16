@@ -1,9 +1,9 @@
 package com.vietis.mvvmarchitecture.ui.auth
 
-import androidx.lifecycle.LiveData
+import com.vietis.mvvmarchitecture.data.db.entities.User
 
 interface AuthListener {
     fun onStarted()
-    fun onSuccess(loginResponse: LiveData<String>)
+    fun onSuccess(user: User)
     fun onFailure(message: String)
 }
