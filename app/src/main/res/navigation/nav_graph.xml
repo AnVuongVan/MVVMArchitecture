@@ -7,6 +7,7 @@
 
     <fragment android:id="@+id/profileFragment"
         android:name="com.vietis.mvvmarchitecture.ui.home.profile.ProfileFragment"
-        android:label="Profile" tools:layout="@layout/profile_fragment"/>
+        android:label="Profile"
+        tools:layout="@layout/profile_fragment"/>
 
 </navigation>

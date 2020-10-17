@@ -6,6 +6,7 @@ import com.vietis.mvvmarchitecture.data.network.MyApi
 import com.vietis.mvvmarchitecture.data.network.NetworkConnectionInterceptor
 import com.vietis.mvvmarchitecture.data.repositories.UserRepository
 import com.vietis.mvvmarchitecture.ui.auth.AuthViewModelFactory
+import com.vietis.mvvmarchitecture.ui.home.profile.ProfileViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.x.androidXModule
@@ -24,6 +25,7 @@ class MVVMApplication : Application(), KodeinAware {
         bind() from singleton { AppDatabase(instance()) }
         bind() from singleton { UserRepository(instance(), instance()) }
         bind() from provider { AuthViewModelFactory(instance()) }
+        bind() from provider { ProfileViewModelFactory(instance()) }
 
     }
 
