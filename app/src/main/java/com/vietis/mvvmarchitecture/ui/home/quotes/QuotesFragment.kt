@@ -1,13 +1,12 @@
 package com.vietis.mvvmarchitecture.ui.home.quotes
 
 import android.annotation.SuppressLint
-import androidx.lifecycle.ViewModelProviders
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.vietis.mvvmarchitecture.R
 import com.vietis.mvvmarchitecture.data.db.entities.Quote
@@ -38,14 +37,14 @@ class QuotesFragment : Fragment(), KodeinAware {
     @SuppressLint("FragmentLiveDataObserve")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, factory).get(QuotesViewModel::class.java)
+        viewModel = ViewModelProvider(this, factory).get(QuotesViewModel::class.java)
         bindUI()
     }
 
     @SuppressLint("FragmentLiveDataObserve")
     private fun bindUI() = Coroutines.main {
         progress_bar.show()
-        viewModel.quotes.await().observe(this, Observer {
+        viewModel.quotes.await().observe(this, {
             progress_bar.hide()
             initRecyclerView(it.toQuoteItem())
         })

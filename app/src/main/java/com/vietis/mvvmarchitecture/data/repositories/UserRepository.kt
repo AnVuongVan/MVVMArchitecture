@@ -5,7 +5,6 @@ import com.vietis.mvvmarchitecture.data.db.entities.User
 import com.vietis.mvvmarchitecture.data.network.MyApi
 import com.vietis.mvvmarchitecture.data.network.SafeApiRequest
 import com.vietis.mvvmarchitecture.data.network.responses.AuthResponse
-import retrofit2.Response
 
 class UserRepository(
     private val api: MyApi,
