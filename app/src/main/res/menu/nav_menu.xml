@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!--<item
+    <item
         android:title="Home"
         android:id="@+id/profileFragment" />
 
     <item
         android:title="Quotes"
-        android:id="@+id/quotesFragment" />-->
-
-    <item
-        android:title="Home"
-        android:id="@+id/fragmentHome" />
-
-    <item
-        android:title="Users"
-        android:id="@+id/fragmentUsers" />
+        android:id="@+id/quotesFragment" />
 
 </menu>
