@@ -9,7 +9,7 @@ import com.vietis.mvvmarchitecture.data.db.entities.User
 import com.vietis.mvvmarchitecture.databinding.ActivityLoginBinding
 import com.vietis.mvvmarchitecture.util.hide
 import com.vietis.mvvmarchitecture.util.show
-import com.vietis.mvvmarchitecture.util.toast
+import com.vietis.mvvmarchitecture.util.snackbar
 import kotlinx.android.synthetic.main.activity_login.*
 
 class LoginActivity : AppCompatActivity(), AuthListener {
@@ -30,11 +30,11 @@ class LoginActivity : AppCompatActivity(), AuthListener {
 
     override fun onSuccess(user: User) {
         progress_bar.hide()
-        toast("${user.name} is logged in")
+        root_layout.snackbar("${user.name} is logged in")
     }
 
     override fun onFailure(message: String) {
         progress_bar.hide()
-        toast(message)
+        root_layout.snackbar(message)
     }
 }
