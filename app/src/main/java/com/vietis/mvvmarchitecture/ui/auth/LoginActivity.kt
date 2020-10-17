@@ -10,6 +10,7 @@ import com.vietis.mvvmarchitecture.R
 import com.vietis.mvvmarchitecture.data.db.AppDatabase
 import com.vietis.mvvmarchitecture.data.db.entities.User
 import com.vietis.mvvmarchitecture.data.network.MyApi
+import com.vietis.mvvmarchitecture.data.network.NetworkConnectionInterceptor
 import com.vietis.mvvmarchitecture.data.repositories.UserRepository
 import com.vietis.mvvmarchitecture.databinding.ActivityLoginBinding
 import com.vietis.mvvmarchitecture.ui.home.HomeActivity
@@ -23,7 +24,8 @@ class LoginActivity : AppCompatActivity(), AuthListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        val api = MyApi()
+        val networkConnectionInterceptor = NetworkConnectionInterceptor(this)
+        val api = MyApi(networkConnectionInterceptor)
         val db = AppDatabase(this)
         val repository = UserRepository(api, db)
         val factory = AuthViewModelFactory(repository)
